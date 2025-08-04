@@ -4,8 +4,8 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "ruff",
-        -- "jedi-language-server",
-        -- "basedpyright",
+        "basedpyright",
+        "jedi-language-server",
       })
     end,
   },
@@ -14,15 +14,14 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        -- basedpyright = {},
-        -- jedi_language_server = {},
         ruff = {},
+        basedpyright = {},
+        jedi_language_server = {},
       },
       setup = {
         on_hover = function()
           require("lazyvim.util").lsp.on_attach(function(client, _)
-            if client.name == "basedpyright" or "copilot" then
-              -- disable hover in favor of jedi-language-server
+            if client.name == "basedpyright" or "copilot" or "ruff" then
               client.server_capabilities.hoverProvider = false
             end
           end)
@@ -50,22 +49,18 @@ return {
           },
           offsetEncoding = { "utf-16" },
         }),
-        -- require("lspconfig").basedpyright.setup({
-        --   settings = {
-        --     pyright = {
-        --       -- Using Ruff's import organizer
-        --       disableOrganizeImports = true,
-        --     },
-        --     basedpyright = {
-        --       disableOrganizeImports = true,
-        --     },
-        --     python = {
-        --       analysis = {
-        --         ignore = { "*" },
-        --       },
-        --     },
-        --   },
-        -- }),
+        require("lspconfig").basedpyright.setup({
+          settings = {
+            pyright = {
+              disableOrganizeImports = True,
+            },
+            python = {
+              analysis = {
+                ignore = { "*" },
+              },
+            },
+          },
+        }),
       },
     },
     {

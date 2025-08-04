@@ -1,12 +1,15 @@
 {
-  "parser": "markdown",
-  "printWidth": 80,
-  "tabWidth": 4,
-  "semi": true,
-  "bracketSpacing": false,
-  "jsxBracketSameLine": false,
-  "singleQuote": false,
-  "trailingComma": "none",
-  "arrowParens": "avoid",
-  "useTabs": false
+	"printWidth": 100,
+	"tabWidth": 4,
+	"bracketSpacing": false,
+	"singleQuote": false,
+	"trailingComma": "none",
+	"arrowParens": "avoid",
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": ".prettierrc",
+			"options": {"parser": "json"}
+		}
+	]
 }
