@@ -1,13 +1,9 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
-vim.opt.winbar = "%=%m %f"
-vim.g.lazyvim_python_ruff = "ruff"
 vim.g.lazyvim_python_lsp = "basedpyright"
 
 vim.opt.guicursor = ""
-
-vim.opt.nu = true
 
 vim.opt.wrap = false
 
@@ -23,6 +19,11 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+vim.opt.nu = true
 vim.opt.updatetime = 50
-
+vim.opt.winbar = "%=%m %f"
 vim.opt.colorcolumn = "100"
+
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smarttab = true
