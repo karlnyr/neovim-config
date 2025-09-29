@@ -3,7 +3,7 @@ return {
     "akinsho/bufferline.nvim",
     -- TODO: Remove this once https://github.com/LazyVim/LazyVim/pull/6354 is merged
     init = function()
-      local bufline = require("catppuccin.groups.integrations.bufferline")
+      local bufline = require("catppuccin.special.bufferline")
       bufline.get = bufline.get_theme
     end,
     ---@module 'bufferline'
@@ -18,15 +18,6 @@ return {
           reveal = { "close" },
         },
       },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    ---@module 'lspconfig'
-    ---@type lspconfig.Config
-    opts = {
-      -- Disable inlay hints
-      inlay_hints = { enabled = false },
     },
   },
 }
